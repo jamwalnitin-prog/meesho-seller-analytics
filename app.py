@@ -29,7 +29,7 @@ st.title("Meesho Seller Analytics")
 st.caption("Consolidated and account-wise reporting across four Meesho seller accounts")
 parts=[]; files={}
 for sid,name in SELLERS.items():
-    matches=[p for p in DATA.glob("Orders_*.csv") if re.search(rf"_{sid}(?: \\(\\d+\\))?\\.csv$",p.name,re.I)]
+    matches=[p for p in DATA.glob("Orders_*.csv") if re.search(rf"_{sid}(?: \(\d+\))?\.csv$",p.name,re.I)]
     if matches:
         p=max(matches,key=lambda x:x.stat().st_mtime)
         try:
